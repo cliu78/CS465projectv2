@@ -4,6 +4,7 @@ import cliu78.example.cs465projectv2.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -136,10 +137,13 @@ public class FullscreenActivity extends Activity {
 	View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent motionEvent) {
-			if (AUTO_HIDE) {
+			Intent myIntent = new Intent(FullscreenActivity.this, DetailActivity.class);//Opens the detail page
+			startActivity(myIntent);
+			return false;
+			/*if (AUTO_HIDE) {
 				delayedHide(AUTO_HIDE_DELAY_MILLIS);
 			}
-			return false;
+			return false;*/
 		}
 	};
 
